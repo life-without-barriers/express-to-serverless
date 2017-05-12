@@ -1,0 +1,29 @@
+{
+  "name": "express-to-serverless",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:life-without-barriers/express-to-serverless.git",
+  "author": "ethan <ethan.williams@lwb.org.au>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "serverless-http": "^1.4.3"
+  },
+  "devDependencies": {
+    "@life-without-barriers/life-without-testing": "^1.1.2",
+    "serverless": "^1.13.0",
+    "serverless-offline": "^3.14.0",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "dev": "node node_modules/serverless/bin/serverless offline start --host '::' --port 8080 --stage dev --region ap-southeast-2",
+    "deploy": "node node_modules/serverless/bin/serverless deploy -v --stage $STAGE",
+    "test": "node node_modules/jest/bin/jest --verbose --coverage --config node_modules/@life-without-barriers/life-without-testing/jest.config.json",
+    "test-watch": "yarn test -- --watchAll --notify",
+    "lint": "node node_modules/standard/bin/cmd.js",
+    "fix": "yarn run lint -- --fix",
+    "start": "AWS_REGION=ap-southeast-2 ENVIRONMENT=dev yarn dev",
+    "express": "node express"
+  }
+}
