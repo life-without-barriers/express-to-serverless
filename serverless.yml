@@ -1,4 +1,4 @@
-service: service-agreements
+service: example-app
 frameworkVersion: ">=1.1.0 <2.0.0"
 plugins:
   - serverless-offline
